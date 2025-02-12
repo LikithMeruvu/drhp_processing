@@ -27,7 +27,18 @@ if [ ! -d ".venv" ]; then
 fi
 
 source .venv/bin/activate
+
+echo "Installing required dependencies..."
+pip install --upgrade pip
 pip install -r requirements.txt
+
+# Fix missing SQLite3 issue
+echo "Ensuring SQLite3 support..."
+apt-get update && apt-get install -y sqlite3 libsqlite3-dev
+pip install pysqlite3-binary
+
+# Optional: Verify SQLite installation
+python3 -c "import sqlite3; print('SQLite installed successfully')"
 
 echo "Starting Uvicorn..."
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload &
