@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-set -e
+set -e  # Exit script on error
 
 # --- Frontend build ---
 pushd frontend
 
-# Install dependencies
+echo "Installing frontend dependencies..."
 npm ci || npm install
 
-# Explicitly install the missing Babel plugin (workaround for old CRA)
+echo "Fixing Babel issue..."
 npm install --save-dev @babel/plugin-proposal-private-property-in-object
 
-# Build the frontend
+echo "Building frontend..."
 npm run build
 
 popd
@@ -18,21 +18,24 @@ popd
 # --- Backend setup ---
 pushd backend
 
-# If virtual environment doesn't exist, create it
+echo "Checking for Python 3..."
+if ! command -v python3 &> /dev/null; then
+    echo "Error: Python3 not found! Install it or use a serverless function."
+    exit 1
+fi
+
+echo "Setting up virtual environment..."
 if [ ! -d ".venv" ]; then
     python3 -m venv .venv
 fi
 
-# Activate virtual environment
 source .venv/bin/activate
-
-# Install Python dependencies
 pip install -r requirements.txt
 
-# Start Uvicorn server in the background
+echo "Starting Uvicorn..."
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload &
 
 popd
 
-# Keep script running so background process doesn't exit immediately
+echo "Script execution completed."
 wait
