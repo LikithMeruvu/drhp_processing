@@ -1,27 +1,21 @@
 #!/usr/bin/env bash
 set -e
 
-# --- Frontend startup ---
+# --- Frontend build ---
 pushd frontend
 npm install
-# Run your frontend dev server in the background
-npm start &
+npm run build  # Produces static files in "dist" or "build" folder
 popd
 
-# --- Backend startup ---
+# --- Backend (build-time tasks only) ---
 pushd backend
 if [ ! -d ".venv" ]; then
-    python -m venv .venv
+    python3 -m venv .venv
 fi
 
-# Activate the virtual environment
 source .venv/bin/activate
-
 pip install -r requirements.txt
 
-# Run Uvicorn in the background
-uvicorn main:app --reload &
+# (Optionally run any scripts that produce *build artifacts* if needed)
+# python3 some_script.py
 popd
-
-# Wait so the script doesn't exit immediately and kill background jobs
-wait
