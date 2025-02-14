@@ -31,7 +31,7 @@ function DBCheck() {
 
       try {
         toast.info('Processing...', { position: 'top-right', autoClose: 7000 });
-        const response = await axios.post('https://rnguk-202-191-174-130.a.free.pinggy.link/db-check', formData, {
+        const response = await axios.post('  https://rnwrx-202-191-174-130.a.free.pinggy.link/db-check', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }

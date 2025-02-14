@@ -28,7 +28,7 @@ function OfficeNote() {
         toast.info("Processing...", { position: "top-right", autoClose: 7000 });
         console.log("Uploading file...");
         const response = await axios.post(
-          `https://rnguk-202-191-174-130.a.free.pinggy.link/upload`,
+          `  https://rnwrx-202-191-174-130.a.free.pinggy.link/upload`,
           formData,
           {
             headers: {
@@ -66,7 +66,7 @@ function OfficeNote() {
       try {
         toast.info("Processing...", { position: "top-right", autoClose: 3000 });
         const response = await axios.post(
-          `https://rnguk-202-191-174-130.a.free.pinggy.link/upload_from_url`,
+          `  https://rnwrx-202-191-174-130.a.free.pinggy.link/upload_from_url`,
           null,
           {
             params: { url: pdfUrl },
@@ -111,7 +111,7 @@ function OfficeNote() {
   const handleGenerateOfficeNote = async () => {
     try {
       const response = await axios.post(
-        `https://rnguk-202-191-174-130.a.free.pinggy.link/generate_office_note`,
+        `  https://rnwrx-202-191-174-130.a.free.pinggy.link/generate_office_note`,
         extractedInfo,
         {
           responseType: "blob",
