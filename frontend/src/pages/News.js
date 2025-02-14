@@ -17,7 +17,7 @@
 //       const formattedCompanyName = companyName.replace(/ /g, '%20');
 //       console.log("Fetching news for company:", formattedCompanyName);
 //       const response = await axios.get(
-//         `https://rntrc-202-191-174-130.a.free.pinggy.link/fetch_ipo_news?company_name=${formattedCompanyName}`
+//         `https://rnfxl-202-191-174-130.a.free.pinggy.link//fetch_ipo_news?company_name=${formattedCompanyName}`
 //       );
 
 //       console.log("API Response:", response.data);
@@ -261,7 +261,7 @@ const News = () => {
       setStatusMessage('Initializing analysis...');
 
       const response = await axios.get(
-        `https://rntrc-202-191-174-130.a.free.pinggy.link/fetch_ipo_news?company_name=${encodeURIComponent(companyName)}`,
+        `https://rnfxl-202-191-174-130.a.free.pinggy.link//fetch_ipo_news?company_name=${encodeURIComponent(companyName)}`,
         { timeout: 3000000 } // 5 minute timeout
       );
 
