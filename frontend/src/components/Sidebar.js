@@ -22,20 +22,20 @@ const Sidebar = () => {
           <span>Home</span>
         </Link>
         
-        <Link to="/observations" className={`menu-item ${isActive('/observations') ? 'active' : ''}`} title="Observations">
+        {/* <Link to="/observations" className={`menu-item ${isActive('/observations') ? 'active' : ''}`} title="Observations">
           <FaListUl />
           <span>Observations</span>
-        </Link>
+        </Link> */}
         
         <Link to="/news" className={`menu-item ${isActive('/news') ? 'active' : ''}`} title="News Analysis">
           <FaNewspaper />
           <span>News</span>
         </Link>
 
-        <Link to="/whats-missing" className={`menu-item ${isActive('/whats-missing') ? 'active' : ''}`} title="What's Missing?">
+        {/* <Link to="/whats-missing" className={`menu-item ${isActive('/whats-missing') ? 'active' : ''}`} title="What's Missing?">
           <FaSearch />
           <span>What&apos;s Missing?</span>
-        </Link>
+        </Link> */}
 
         <Link to="/db-check" className={`menu-item ${isActive('/db-check') ? 'active' : ''}`} title="Database Check">
           <FaDatabase />
